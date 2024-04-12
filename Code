@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <style>
+
+    /* Style/Look segment */
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+      background-color: ##262322;
+
+    }
+
+
+    .container {
+
+      width: 300px;
+
+      margin: 0 auto;
+
+      padding: 20px;
+
+      background-color: #fff;
+
+      border: 1px solid #ccc;
+
+      border-radius: 5px;
+
+    }
+
+
+    h2 {
+
+      text-align: center;
+
+      color: ##262322;
+
+    }
+
+
+    label {
+
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: ##262322;
+
+    }
+
+
+    input[type="text"],
+
+    input[type="password"] {
+
+      width: 100%;
+
+      padding: 8px;
+
+      margin-bottom: 10px;
+
+      border: 1px solid #ccc;
+
+      border-radius: 3px;
+
+    }
+
+
+    input[type="password"] {
+
+      font-family: "Courier New", monospace;
+
+    }
+
+
+    .error-message {
+
+      color: red;
+
+      margin-top: 10px;
+
+      font-weight: bold;
+
+    }
+
+
+    input[type="text"]:focus,
+
+    input[type="password"]:focus {
+
+      outline: none;
+
+      border-color: ##262322;
+
+      box-shadow: 0 0 5px ##262322;
+
+    }
+
+
+    .submit-button {
+
+      display: block;
+
+      width: 100%;
+
+      padding: 8px;
+
+      background-color: ##262322;
+
+      color: #fff;
+
+      border: none;
+
+      border-radius: 3px;
+
+      cursor: pointer;
+
+    }
+
+
+    .submit-button:hover {
+
+      background-color: ##262322;
+
+    }
+
+  </style>
+
+  <script>
+
+    /* All usernames, passwords, and redirect websites segment */
+
+    function checkCredentials(event) {
+
+      event.preventDefault(); // Prevent form submission
+
+
+      var usernameInput = document.getElementById("username");
+
+      var passwordInput = document.getElementById("password");
+
+      var username = usernameInput.value;
+
+      var password = passwordInput.value;
+
+      var error = document.getElementById("error-message");
+
+
+     if (username === "" || password === "") {
+
+        error.textContent = "Please enter both username and password.";
+
+      } else if (username === "User1" && password === "1") {
+
+        window.open("Site http", "_blank");
+
+      } else if (username === "User2" && password === "2") {
+
+        window.open("Site https", "_blank");
+
+      } else if (username === "User3" && password === "3") {
+
+        window.open("Site htpps", "_blank");
+
+      } else if (username === "User4" && password === "4") {
+
+        window.open("Site https", "_blank");
+
+      } else {
+
+        error.textContent = "Wrong username or password.";
+
+      }
+
+
+
+      // Clear the username and password input fields
+
+      usernameInput.value = "";
+
+      passwordInput.value = "";
+
+    }
+
+
+    function clearErrorMessage() {
+
+      var error = document.getElementById("error-message");
+
+      error.textContent = "";
+
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>Login</h2>
+
+
+    <!-- Extra Stuff segment -->
+
+    <form onsubmit="checkCredentials(event)">
+
+      <label for="username">Username or Email:</label>
+
+      <input type="text" id="username" required oninput="clearErrorMessage()">
+
+      <label for="password">Password:</label>
+
+      <input type="password" id="password" required oninput="clearErrorMessage()">
+
+      <p id="error-message" class="error-message"></p>
+
+      <button type="submit" class="submit-button">Login</button>
+
+    </form>
+
+  </div>
+
+</body>
+
+</html>
